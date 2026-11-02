@@ -29,6 +29,13 @@ document.querySelector('#contact-form')?.addEventListener('submit', event => {
   const recipient = 'app.team.liia@gmail.com';
   const subject = encodeURIComponent(`Website enquiry: ${service}`);
   const body = encodeURIComponent(`Hi Liia,\n\nMy name: ${name}\nMy email: ${email}\nService: ${service}\n\nProject details:\n${details}\n`);
+    if (typeof gtag === 'function') {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18550359029/MQCoCMnSnLAdEPWHwI1F',
+      'value': 1.0,
+      'currency': 'CAD'
+    });
+  }
   window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
 });
 
